@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.0.2",
+    "elliptic": "^6.5.7",
     "ws": "^8.18.0"
   }
 }
