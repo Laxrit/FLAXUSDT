@@ -1,17 +1,25 @@
-require('@nomicfoundation/hardhat-ethers');
-require('@nomicfoundation/hardhat-etherscan'); // Ensure this is the correct package
-require('dotenv').config();  // Load environment variables from .env file
+require('@nomiclabs/hardhat-ethers');
+require('@nomiclabs/hardhat-waffle');
+require('dotenv').config();
 
 module.exports = {
-  solidity: "0.8.0",  // Adjust the version if needed
+  solidity: {
+    compilers: [
+      {
+        version: "0.8.24",
+      },
+      {
+        version: "0.8.20",
+      }
+    ]
+  },
   networks: {
     goerli: {
-      url: process.env.GOERLI_URL || "", // Ensure this URL is correctly set in your .env
-      accounts: [process.env.PRIVATE_KEY || ""]
-    }
+      url: process.env.ALCHEMY_API_KEY,
+      accounts: [`0x${process.env.PRIVATE_KEY}`],
+    },
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY || "" // Optional: for contract verification on Etherscan
-  }
+    apiKey: process.env.ETHERSCAN_API_KEY,
+  },
 };
-
