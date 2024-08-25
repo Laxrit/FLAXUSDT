@@ -1,6 +1,7 @@
 require('@nomiclabs/hardhat-ethers');
 require('@nomiclabs/hardhat-waffle');
 require('dotenv').config();
+require('@nomiclabs/hardhat-etherscan');
 
 module.exports = {
   solidity: {
@@ -15,7 +16,7 @@ module.exports = {
   },
   networks: {
     goerli: {
-      url: process.env.ALCHEMY_API_KEY,
+      url: process.env.ALCHEMY_API_URL,  // Make sure this matches your environment variable name
       accounts: [`0x${process.env.PRIVATE_KEY}`],
     },
   },
