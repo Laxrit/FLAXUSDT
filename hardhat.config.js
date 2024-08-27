@@ -15,7 +15,7 @@ module.exports = {
     ]
   },
   networks: {
-    alchemy: {
+    sepolia: {
       url: process.env.ALCHEMY_API_URL,  // Make sure this matches your environment variable name
       accounts: [`0x${process.env.PRIVATE_KEY}`],
     },
